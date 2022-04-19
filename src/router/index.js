@@ -14,11 +14,17 @@ const routes = [
         path: '/orders/:id(\\d+)',
         name: 'order-details',
         component: () => import('../views/Order.vue')
+    },
+    {
+        path: '/orders/:id(\\d+)/products/:product_id(\\d+)',
+        name: 'product',
+        component: () => import('../views/Product.vue')
     }
 ]
 
 const router = new VueRouter({
-  routes
+    base: process.env.VUE_APP_BASE_URL,
+    routes
 })
 
 export default router

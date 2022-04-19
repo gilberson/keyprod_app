@@ -63,17 +63,17 @@ export default {
   },
 
   data: () => ({
-    //
+    
   }),
 };
 </script>
 
 <style scoped>
-.app-footer {
-  border: 1px dotted green;
-}
+  .app-footer {
+    border: 1px dotted green;
+  }
 
-.navigation-drawer{
-  border: 1px dotted green;
-}
+  .navigation-drawer{
+    border: 1px dotted green;
+  }
 </style>

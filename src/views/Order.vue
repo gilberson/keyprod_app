@@ -27,22 +27,14 @@
 
             <tr>
                 <th>Total Amount</th>
-                <td>${{order.total}}</td>
+                <td>${{(order.total).toFixed(2)}}</td>
             </tr>
         </table>
-
-        <!-- ITEMS -->
-        <v-card
-            class="mx-auto"
-            
-        >
-        <v-toolbar
-        color="pink"
-        dark
-        >
+        <v-card class="mx-auto">
+        <v-toolbar color="pink" dark>
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title>Inbox</v-toolbar-title>
+            <v-toolbar-title>Products</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -76,23 +68,13 @@
                         <v-list-item-subtitle v-text="item.created_at"></v-list-item-subtitle>
                     </v-list-item-content>
 
-                    <!--<v-list-item-action>
-                        <v-list-item-action-text v-text="item.created_at"></v-list-item-action-text>
-
-                        <v-icon
-                        v-if="!active"
-                        color="grey lighten-1"
-                        >
-                        mdi-star-outline
-                        </v-icon>
-
-                        <v-icon
-                        v-else
-                        color="yellow darken-3"
-                        >
-                        mdi-star
-                        </v-icon>
-                    </v-list-item-action>-->
+                    <v-list-item-action>
+                        <router-link :to="`/orders/${order.id}/products/${item.id}`">
+                            <v-icon color="yellow darken-3">
+                                mdi-eye-outline
+                            </v-icon>
+                        </router-link>
+                    </v-list-item-action>
                 </template>
             </v-list-item>
 
@@ -109,7 +91,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import apiClient from './../services/apiClient'
 
 const PENDING_STATUS = 'Pending'
 const PROCESSING_STATUS = 'Processing'
@@ -126,7 +108,7 @@ export default {
         }
     },
     async mounted () {
-        await axios.get(`http://localhost:8000/api/orders/${this.$route.params.id}`).then(response => {
+        await apiClient.get(`orders/${this.$route.params.id}`).then(response => {
             console.log("Orders loaded successfully : " + JSON.stringify(response))
             this.order_items = response.data.order_items.data
             this.order = response.data.order
