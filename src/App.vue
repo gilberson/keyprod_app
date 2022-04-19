@@ -1,5 +1,9 @@
 <template>
   <v-app>
+    <v-navigation-drawer class="navigation-drawer" app>
+      <h1>SIDE MENU</h1>
+    </v-navigation-drawer>
+    
     <v-app-bar
       app
       color="primary"
@@ -38,19 +42,24 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
     </v-main>
+
+    <v-footer class="app-footer" app>
+      <h1>FOOTER CONTENT</h1>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    
   },
 
   data: () => ({
@@ -58,3 +67,13 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.app-footer {
+  border: 1px dotted green;
+}
+
+.navigation-drawer{
+  border: 1px dotted green;
+}
+</style>
