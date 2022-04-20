@@ -43,6 +43,14 @@
                 Package Items
             </v-btn>
         </router-link>
+        <router-link :to="`/packages/${this.$route.params.package_id}/tracking`">
+            <v-btn
+            color="success"
+            class="mr-4 add-product-package"
+            >
+                Tracking
+            </v-btn>
+        </router-link>
         <v-data-table
             v-model="selected"
             :headers="headers"
