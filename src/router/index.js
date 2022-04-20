@@ -19,6 +19,26 @@ const routes = [
         path: '/orders/:id(\\d+)/products/:product_id(\\d+)',
         name: 'product',
         component: () => import('../views/Product.vue')
+    },
+    {
+        path: '/packages',
+        name: 'packages',
+        component: () => import('../views/Packages.vue')
+    },
+    {
+        path: '/packages/create',
+        name: 'create-package',
+        component: () => import('../views/CreatePackage.vue')
+    },
+    {
+        path: '/packages/:package_id(\\d+)',
+        name: 'package-details',
+        component: () => import('../views/PackageDetails.vue')
+    },
+    {
+        path: '/packages/:package_id(\\d+)/items',
+        name: 'package-items',
+        component: () => import('../views/PackageItems.vue')
     }
 ]
 

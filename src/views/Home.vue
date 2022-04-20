@@ -30,41 +30,41 @@ const PROCESSING_STATUS = "Processing";
 const DONE_STATUS = "Done";
 
 export default {
-  name: "home-view",
+    name: "home-view",
 
-  data() {
-    return {
-      orders: [],
-      headers: [
-        { text: "Order reference", value: "order_reference" },
-        { text: "Status", value: "status" },
-        { text: "Created At", value: "created_at" },
-        { text: "Customer", value: "customer" },
-        { text: "Actions", value: "actions", sortable: false },
-      ],
-    };
-  },
-  async mounted() {
+    data() {
+        return {
+            orders: [],
+            headers: [
+                { text: "Order reference", value: "order_reference" },
+                { text: "Status", value: "status" },
+                { text: "Created At", value: "created_at" },
+                { text: "Customer", value: "customer" },
+                { text: "Actions", value: "actions", sortable: false },
+            ],
+        };
+    },
+    async mounted() {
 
-    await apiClient.get('/orders')
+        await apiClient.get('/orders')
         .then((response) => {
             this.orders = response.data.orders.data;
         })
         .catch((error) => {
             console.log("Failed : " + error);
         });
-  },
-  methods: {
-    getColor(status) {
-      if (status == 1) return "red";
-      else if (status == 2) return "orange";
-      else return "green";
     },
-    getStatus(status) {
-      if (status === 1) return PENDING_STATUS;
-      else if (status === 2) return PROCESSING_STATUS;
-      else return DONE_STATUS;
+    methods: {
+        getColor(status) {
+            if (status == 1) return "red";
+            else if (status == 2) return "orange";
+            else return "green";
+        },
+        getStatus(status) {
+            if (status === 1) return PENDING_STATUS;
+            else if (status === 2) return PROCESSING_STATUS;
+            else return DONE_STATUS;
+        },
     },
-  },
 };
 </script>
