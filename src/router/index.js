@@ -49,6 +49,16 @@ const routes = [
         path: '/packages/:package_id(\\d+)/tracking/create',
         name: 'create-tracking',
         component: () => import('../views/CreateTracking.vue')
+    },
+    {
+        path: '/tracking',
+        name: 'trackings',
+        component: () => import('../views/Trackings.vue')
+    },
+    {
+        path: '*',
+        name: 'Not Found',
+        component: () => import('../views/NotFound.vue')
     }
 ]
 

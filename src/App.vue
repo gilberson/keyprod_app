@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer class="navigation-drawer" app>
-      <h1>SIDE MENU</h1>
+      
     </v-navigation-drawer>
     
     <v-app-bar
@@ -48,7 +48,7 @@
     </v-main>
 
     <v-footer class="app-footer" app>
-      <h1>FOOTER CONTENT</h1>
+      
     </v-footer>
   </v-app>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Create package</h1>
+        <h1>Create tracking</h1>
         <router-link :to="`/packages`">
             <v-btn
                 color="success"

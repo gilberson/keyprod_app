@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>PRODUCT</h1>
-        PRODUCT: {{product}}
         <table style="width:100%" class="order">
             <tr>
                 <th>Name</th>

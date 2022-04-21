@@ -23,7 +23,7 @@
         
         </router-link>
 
-        <table style="width:100%" class="tracking">
+        <table style="width:100%" class="tracking" v-if="tracking">
             <tr>
                 <th>Tracking number</th>
                 <td>{{tracking.tracking_number}}</td>
